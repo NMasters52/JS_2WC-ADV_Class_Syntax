@@ -1,22 +1,19 @@
 class Disc {
-    constructor(speed, weight, name, type) {
-        this.speed = speed
+    constructor(speed, weight, name) {
+        this.speed = speed,
         this.weight = weight,
-        this.name = name,
-        this.type = type
-        }
+        this.name = name
+    }
 
         get speed() {
-         console.log(this.speed);
-         return this.speed;   
+         return this._speed;   
         }
 
-        set speed(speed) {
-            if (speed < 0) {
-                console.error('speed must be greater than 0')
+        set speed(newSpeed) {
+            if (newSpeed > 0 && typeof newSpeed === 'number') {
+              this._speed = newSpeed;
             } else {
-                console.log(this.speed);
-                return this.speed = speed;
+             console.error('speed must be a positive number larger than 0.') 
             }
         }
 }
@@ -28,11 +25,11 @@ class Driver extends Disc {
         this.plastic = plastic;
     }
 
-    speed(){
-        console.log(`${super.speed} this is the new speed ${speed}`);
-        return this.speed = speed;
-    }
 }
 
-const destroyer = new Driver(12, 175, 'destroyer','overstable', 'star');
-destroyer.speed = 11;
+const destroyer = new Disc(12, 175, 'destroyer');
+destroyer.speed = "12";
+console.log(destroyer.speed);
+
+const starDestroyer = new Driver(12, 175,'destroyer', 'over', 'star');
+console.log(starDestroyer.weight);
