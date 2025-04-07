@@ -28,8 +28,8 @@ class Driver extends Disc {
 }
 
 const destroyer = new Disc(12, 175, 'destroyer');
-destroyer.speed = "12";
 console.log(destroyer.speed);
 
 const starDestroyer = new Driver(12, 175,'destroyer', 'over', 'star');
+starDestroyer.weight = 15;
 console.log(starDestroyer.weight);
